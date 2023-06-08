@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Assign Projects</title>
+
+<link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css}" rel="stylesheet">
+<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js}" ></script> 
+  <link rel="stylesheet" th:href="@{//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css}">
+  <link rel="stylesheet" th:href="@{/resources/demos/style.css}">
+   <!-- jQuery library -->
+    <script th:src=
+"@{https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js}">
+    </script>
+    <!-- Popper JS -->
+    <script th:src=
+"@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}">
+    </script>
+  <script th:src="@{https://code.jquery.com/jquery-3.6.0.js}"></script>
+  <script th:src="@{https://code.jquery.com/ui/1.13.2/jquery-ui.js}"></script>
+  <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect"th:href="@{https://fonts.googleapis.com}">
+<link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+<link th:href="@{https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,700&display=swap}" rel="stylesheet">
+
+<style>
+
+  body{
+ background:linear-gradient(to right,#6441a5, #2a0845);
+ font-family: 'Ubuntu', sans-serif;
+  
+  }
+  #head{
+  margin-top:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  }
+#bg{
+background-color:green;
+height:45px;
+padding:10px;
+border-radius:5px;
+}
+#form{
+margin-top:25px;
+ width:50%;
+ height:auto;
+ background-color:aliceblue;
+padding:15px;
+border-radius:20px;
+}
+</style>
+
+
+
+</head>
+<body>
+
+<div class="container" id="head">
+<div id="bg" class="text-center">
+<i class="fa-regular fa-plus-large fa-bounce fa-2xl" style="color: #ffffff;"><span>&nbsp;ASSIGN&nbsp;&nbsp;PROJECT</span></i>
+</div>
+<a th:href="@{/adminlogout}"  class="btn btn-danger"><i class="fa-solid fa-right-from-bracket fa-bounce"></i>&nbsp;LOGOUT</a>
+</div>
+
+<div class=container-fluid id="form">
+<form th:action="@{/saveproject}" method="post">
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label"><i class="fa-solid fa-file"></i>&nbsp;Project Name</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Project Name" name="name" required>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label"><i class="fa-solid fa-align-center"></i>&nbsp;Project Description</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Some points about project" name="description" required></textarea>
+</div>
+
+<div class="mb-3">
+  <label for="startdate" class="form-label"><i class="fa-solid fa-calendar-days"></i>&nbsp;Start Date</label>
+  <input type="date" class="form-control" id="startdate" th:min="${today}" name="startdate" required>
+</div>
+
+<div class="mb-3">
+  <label for="enddate" class="form-label"><i class="fa-solid fa-calendar-days"></i>&nbsp;End Date</label>
+  <input type="date" class="form-control" id="enddate" th:min="${today}" name="enddate" required>
+</div>
+	
+	<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label"><i class="fa-solid fa-users-gear"></i>&nbsp;Add Team Member</label>
+  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Add Team Member Name" name="teammember" required>
+</div>
+	
+	<button class="btn btn-primary" type="submit"><i class="fa-solid fa-check"></i>&nbsp;Submit</button>
+	<button class="btn btn-danger" type="reset"><i class="fa-solid fa-xmark"></i>&nbsp;Cancel</button>
+</form>
+</div>
+
+
+</body>
+</html>
